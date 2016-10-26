@@ -1,0 +1,29 @@
+{
+  "name": "amazon-reviews-questions-notifier",
+  "version": "0.0.0",
+  "description": "A node module for setting up notifications for new Amazon reviews and questions.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/escaladesports/amazon-reviews-questions-notifier.git"
+  },
+  "keywords": [
+    "amazon",
+    "reviews",
+    "questions",
+    "notifier",
+    "scraper"
+  ],
+  "author": "Kennedy Rose <krose@escaladesports.com> (https://escaladesports.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/escaladesports/amazon-reviews-questions-notifier/issues"
+  },
+  "homepage": "https://github.com/escaladesports/amazon-reviews-questions-notifier#readme",
+  "dependencies": {
+    "amazon-questions-crawler": "0.0.1",
+    "amazon-reviews-crawler": "0.0.3",
+    "lowdb": "^0.14.0",
+    "nodemailer": "^2.6.4"
+  }
+}
