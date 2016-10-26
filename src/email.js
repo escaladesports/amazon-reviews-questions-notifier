@@ -4,11 +4,18 @@ const templates = require('./email-templates.js')
 
 // Prettify category name
 function formatCategory(category){
-	category = category.split('-')
-	for(var i = category.length; i--;){
-		category[i] = category[i].charAt(0).toUpperCase() + category[i].slice(1)
+	if(category.indexOf('-') > -1){
+		category = category.split('-')
+		for(var i = category.length; i--;){
+			category[i] = category[i].charAt(0).toUpperCase() + category[i].slice(1)
+		}
+		category = category.join(' ')
 	}
-	return category.join(' ')
+	else{
+		category = category.replace( /([A-Z])/g, " $1" )
+		category = category.charAt(0).toUpperCase() + category.slice(1)
+	}
+	return category
 }
 
 // Sends email
