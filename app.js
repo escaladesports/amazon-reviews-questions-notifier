@@ -1,4 +1,5 @@
 'use strict'
+const fs = require('fs')
 const database = require('./src/database')
 const crawl = require('./src/crawler')
 const email = require('./src/email.js')
@@ -35,15 +36,15 @@ function init(opt, cb){
 
 	// Require if file paths
 	if(typeof opt.productList === 'string'){
-		try { opt.productList = require(opt.productList) }
+		try { opt.productList = JSON.parse(fs.readFileSync(opt.productList, 'utf8')) }
 		catch(e) { return cb(e) }
 	}
 	if(opt.sendEmail && typeof opt.emailList === 'string'){
-		try { opt.emailList = require(opt.emailList) }
+		try { opt.emailList = JSON.parse(fs.readFileSync(opt.emailList, 'utf8')) }
 		catch(e) { return cb(e) }
 	}
 	if(opt.sendEmail && typeof opt.smtpCredentials === 'string'){
-		try { opt.smtpCredentials = require(opt.smtpCredentials) }
+		try { opt.smtpCredentials = JSON.parse(fs.readFileSync(opt.smtpCredentials, 'utf8')) }
 		catch(e) { return cb(e) }
 	}
 
@@ -60,7 +61,7 @@ function init(opt, cb){
 
 			// Log latest in database
 			database.logLatest(opt.db, data)
-			cb()
+			cb(false, data)
 
 		})
 

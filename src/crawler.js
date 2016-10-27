@@ -60,7 +60,6 @@ function processProduct(opt, category, progress, output, cb){
 		getQuestions(opt.productList[category][progress], {
 			stopAtQuestionId: database.getLastQuestion(opt.db, opt.productList[category][progress])
 		}, (err, questions) => {
-
 			if(err){
 				cb(err)
 				throw err

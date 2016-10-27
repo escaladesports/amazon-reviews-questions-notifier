@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/escaladesports/amazon-reviews-questions-notifier#readme",
   "dependencies": {
-    "amazon-questions-crawler": "0.0.1",
-    "amazon-reviews-crawler": "0.0.3",
+    "amazon-questions-crawler": "0.0.2",
+    "amazon-reviews-crawler": "0.0.5",
     "lowdb": "^0.14.0",
     "nodemailer": "^2.6.4"
   }

@@ -47,7 +47,7 @@ amazonNotifier({
 })
 ```
 
-**Note:** Instead of providing objects, you can also provide a JSON file with the same content that will be read by the module.
+**Note:** Instead of providing objects, you can also provide the absolute path to a JSON file with the same content that will be read by the module.
 
 ```
 // Require module
@@ -55,9 +55,9 @@ var amazonNotifier = require('amazon-reviews-questions-notifier')
 
 // Run notifier with options providing paths to JSON files
 amazonNotifier({
-	productList: 'products.json',
-	emailList: 'email.json',
-	smptCredentials: 'smpt.json'
+	productList: __dirname + '/products.json',
+	emailList: __dirname + '/email.json',
+	smptCredentials: __dirname + '/smpt.json'
 })
 ```
 

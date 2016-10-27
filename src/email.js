@@ -20,6 +20,11 @@ function formatCategory(category){
 
 // Sends email
 function mail(opt, data, cb){
+
+	if(!opt.sendEmail){
+		return cb(false, data)
+	}
+
 	let prog = 0
 	let total = Object.keys(data).length
 	let mailTransport
