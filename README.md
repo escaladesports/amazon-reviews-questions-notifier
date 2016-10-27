@@ -55,9 +55,9 @@ var amazonNotifier = require('amazon-reviews-questions-notifier')
 
 // Run notifier with options providing paths to JSON files
 amazonNotifier({
-	productList: __dirname + '/products.json',
-	emailList: __dirname + '/email.json',
-	smptCredentials: __dirname + '/smpt.json'
+	productList: 'products.json',
+	emailList: 'email.json',
+	smptCredentials: 'smpt.json'
 })
 ```
 
