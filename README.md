@@ -114,3 +114,7 @@ var amazonNotifier = require('amazon-reviews-questions-notifier')
 - `crawlQuestions` (Default: `true`)
 
 	Set to `false` to stop crawling questions.
+	
+- `userAgent` (Default: `null`)
+
+	Changes the crawler's default user agent string.

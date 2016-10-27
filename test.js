@@ -3,7 +3,7 @@ const amazonNotifier = require('./app')
 
 
 amazonNotifier({
-	sendEmail: true,
+	sendEmail: false,
 	productList: 'product.json',
 	emailList: 'email.json',
 	smtpCredentials: 'smtp.json'

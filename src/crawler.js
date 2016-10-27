@@ -47,19 +47,27 @@ function processProduct(opt, category, progress, output, cb){
 		return
 	}
 
-	// Find reviews
-	getReviews(opt.productList[category][progress], {
+	// Options
+	const reviewOpt = {
 		stopAtReviewId: database.getLastReview(opt.db, opt.productList[category][progress])
-	}, (err, reviews) => {
+	}
+	const questionOpt = {
+		stopAtQuestionId: database.getLastQuestion(opt.db, opt.productList[category][progress])
+	}
+	if('userAgent' in opt){
+		reviewOpt.userAgent = opt.userAgent
+		questionOpt.userAgent = opt.userAgent
+	}
+
+	// Find reviews
+	getReviews(opt.productList[category][progress], reviewOpt, (err, reviews) => {
 		if(err){
 			cb(err)
 			throw err
 		}
 
 		// Find questions
-		getQuestions(opt.productList[category][progress], {
-			stopAtQuestionId: database.getLastQuestion(opt.db, opt.productList[category][progress])
-		}, (err, questions) => {
+		getQuestions(opt.productList[category][progress], questionOpt, (err, questions) => {
 			if(err){
 				cb(err)
 				throw err
